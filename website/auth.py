@@ -30,8 +30,8 @@ def signup():
       new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256')) # creating a new user entity
       db.session.add(new_user) # adding a user to db
       db.session.commit() # commit that change to database
-      #login_user(new_user, remember=True)
-      login_user(user, remember=True)
+      login_user(new_user, remember=True)
+      # login_user(user, remember=True)
       flash('Account created!', category='success')
       return redirect(url_for('views.home'))
   
@@ -62,4 +62,3 @@ def login():
 def loguot():
   logout_user()
   return redirect(url_for('auth.login'))
-

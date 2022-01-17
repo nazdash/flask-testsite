@@ -4,6 +4,6 @@ function deleteNote(noteId) {// take this noteId
     method: "POST",
     body: JSON.stringify({ noteId: noteId }),
   }).then((_res) => {//get result
-    window.location.href = "/";//update page to home page aka refresh
+    window.location.href = "/wall";//update page to home page aka refresh
   });
 }
