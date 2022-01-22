@@ -11,19 +11,23 @@
 <div id="posts">
 {% for post in posts %}
 
-<div class="card mb-3">
+<!-- <div class="card mb-3"> -->
 <!-- <img src="..." class="card-img-top" alt="..."> -->
   <div class="card-body">
     <h5 class="card-title"><a href="/post/{{post.post_url}}">{{post.title}}</a></h5>
-    <p class="card-text">{{post.id}} // {{post.snippet}}</p>
-    <p class="card-text"><small class="text-muted">{{post.date}}</small></p>
-    <p>
-      <a href="/delete-post/{{post.id}}"><button type="submit" class="btn btn-primary">Delete post</button></a>
-      <a href="/edit-post/{{post.id}}"><button type="submit" class="btn btn-primary">Edit post</button></a>
+    <p class="card-text">{{post.snippet}}</p>
+    <hr />
+    <p class="card-text" style="float:left"><small class="text-muted">{{post.date}}</small></p>
+    {% if user.is_authenticated %}
+    <p style="float:right">
+      <a href="/edit-post/{{post.id}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+      <a href="/delete-post/{{post.id}}"><button type="button" class="btn btn-danger btn-sm" >Delete</button></a>
     </p>
+    {% endif %}
   </div>
-</div>
-
+<!-- </div> -->
+<br/>
+<br/>
 <br/>
 {% endfor %}
 </div>

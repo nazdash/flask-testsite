@@ -4,26 +4,26 @@
 
 {% block content %}
 
-<h4 align="left">Here should be a list of blog posts.
+<h4 align="left">a list of all blog posts.
 </h4>
 <br/>
 
 <div id="posts"/>
 {% for post in posts %}
 
-<div class="card mb-3">
-<!-- <img src="..." class="card-img-top" alt="..."> -->
-  <div class="card-body">
-    <h5 class="card-title"><a href="/post/{{post.post_url}}">{{post.title}}</a></h5>
-    <p class="card-text">{{post.id}} // {{post.snippet}}</p>
-    <p class="card-text"><small class="text-muted">{{post.date}}</small></p>
-    <p>
-      <a href="/delete-post/{{post.id}}"><button type="submit" class="btn btn-primary">Delete post</button></a>
-      <a href="/edit-post/{{post.id}}"><button type="submit" class="btn btn-primary">Edit post</button></a>
-    </p>
-  </div>
+  <h5 class="card-title"><a style="color:inherit;" href="/post/{{post.post_url}}">{{post.title}}</a></h5>
+  <!-- <p class="card-text" style="float:left"><small class="text-muted">{{post.date}}</small></p> -->
+  {% if user.is_authenticated %}
+  <p style="float:left">
+    <a href="/edit-post/{{post.id}}">Edit</a>
+    <a href="/delete-post/{{post.id}}">Delete</a>
+  </p>
+  {% endif %}
 </div>
+<br/>
 <br/>
 {% endfor %}
 
 {% endblock %}
+
+<!-- "color:inherit; text-decoration: none;" -->
