@@ -1,0 +1,50 @@
+ {% extends "base.html" %} 
+
+{% block title %}Create post{% endblock %}
+
+{% block content %}
+
+<h3 align="left">You can create a new post here.
+</h3>
+
+<br />
+
+<form action="/create-post" method="POST" enctype="multipart/form-data">
+  <h5>Enter title:</h5>
+  <input type="text" name="title" maxlength="125" />
+  <br />
+  <br />
+  <h5>Enter content:</h5>
+  <p><i>Using your body images: &ltimg src="../{imgs[0].img_path}"&gt</i></p>
+  <textarea name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+  <br />
+  <h5>Enter snippet:</h5>
+  <textarea name="snippet" id="content" class="form-control"></textarea>
+  <br />
+  <h5>Body images:</h5>
+  <div id="body_img_div">
+      <div id="img0div">
+          
+          <label for="img0">0 :</label>
+          <input type="file" class="form-control" id="img0" name="body_imgs" accept=".jpg,.png,.gif" />
+          
+      </div>
+  </div>
+  <br />
+  <button type="button" class="btn btn-secondary" name="button" onclick="newinput()">Add Image</button>
+  <br />
+  <br />
+  <h5>Feature image:</h5>
+  <input type="file" class="form-control" name="feature_image" accept=".jpg,.png,.gif" />
+  <br />
+  <br />
+  <h5>Feature video:</h5>
+  <input type="text" name="feature_video_link" />
+  <br />
+  <br />
+  <div align="left">
+    <button type="submit" class="btn btn-primary">Add post</button>
+  </div>
+</form>
+
+{% endblock %}

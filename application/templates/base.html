@@ -29,13 +29,16 @@
       /* border: 3px solid green;
       padding: 10px; */
       }
+    div.container {
+      margin-bottom: 50px;
+      }
     </style>
     
   </head>
 
   <!-- <div class="container-sm"> -->
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">nazdash sandbox</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,9 +49,9 @@
             <!-- <li class="nav-item">
               <a class="nav-item nav-link" id="home" href="/">Home</a>
             </li> -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-item nav-link" id="blog" href="/blog">Blog</a>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Projects
@@ -57,21 +60,22 @@
                 <li><a class="dropdown-item" href="https://github.com/nazdash/crypto/blob/main/simple_rsa.py" target="_blank">RSA</a></li>
                 <li><a class="dropdown-item" href="https://github.com/nazdash/crypto/blob/main/simple_amm.py" target="_blank">AMM</a></li>
                 <!-- <li><hr class="dropdown-divider"></li> -->
-                <li><a class="dropdown-item" href="https://unit.app/" target="_blank">Unit</a></li>
+                <li><a class="dropdown-item" href="/wall">Wall</a></li>
               </ul>
             </li>
             <li class="nav-item">
               <a class="nav-item nav-link" id="about" href="/about">About</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-item nav-link" id="wall" href="/wall">Wall</a>
-            </li>
+            </li> -->
           </ul>
           {% if user.is_authenticated %}
+          <a class="nav-item nav-link" id="logout" href="/create-post">Create Post</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           {% else %}
-          <a class="nav-link disabled" id="signUp" href="/signup">Sign Up</a>
-          <a class="nav-item nav-link" id="login" href="/login">Login</a>
+          <!-- <a class="nav-link disabled" id="signUp" href="/signup">Sign Up</a> -->
+          <!-- <a class="nav-item nav-link" id="login" href="/login">Login</a> -->
           {% endif %}
         </div>
       </div>
@@ -83,14 +87,14 @@
       {% for category, message in messages %}
       {% if category == 'error' %}
 
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
           {{ message }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
       {% else %}
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="alert">
           {{ message }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -113,6 +117,7 @@
       type="text/javascript"
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
+    
   </body>
   <!-- </div> -->
 
