@@ -4,8 +4,8 @@
 
 {% block content %}
 
-<h4 align="left">just a blog.
-</h4>
+<h3 align="left">just a blog.
+</h3>
 <br/>
 
 <div id="posts">
@@ -13,18 +13,19 @@
 
 <!-- <div class="card mb-3"> -->
 <!-- <img src="..." class="card-img-top" alt="..."> -->
-  <div class="card-body">
-    <h5 class="card-title"><a href="/post/{{post.post_url}}">{{post.title}}</a></h5>
-    <p class="card-text">{{post.snippet}}</p>
-    <hr />
-    <p class="card-text" style="float:left"><small class="text-muted">{{post.date}}</small></p>
+  <!-- <div class="card-body"> -->
+    <pstyle="float:left"><small class="text-muted">{{post.date}}</small></p>
     {% if user.is_authenticated %}
     <p style="float:right">
       <a href="/edit-post/{{post.id}}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
       <a href="/delete-post/{{post.id}}"><button type="button" class="btn btn-danger btn-sm" >Delete</button></a>
     </p>
     {% endif %}
-  </div>
+    <div>
+    <h5><a href="/post/{{post.post_url}}">{{post.title}}</a></h5>
+    <p>{{post.snippet}}</p>
+    </div>
+  <!-- </div> -->
 <!-- </div> -->
 <br/>
 <br/>

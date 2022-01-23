@@ -4,15 +4,14 @@
 
 {% block content %}
 
-<h4 align="left">a list of all blog posts.
-</h4>
+<h3 align="left">a list of all blog posts.
+</h3>
 <br/>
 
 <div id="posts"/>
 {% for post in posts %}
 
   <h5 class="card-title"><a style="color:inherit;" href="/post/{{post.post_url}}">{{post.title}}</a></h5>
-  <!-- <p class="card-text" style="float:left"><small class="text-muted">{{post.date}}</small></p> -->
   {% if user.is_authenticated %}
   <p style="float:left">
     <a href="/edit-post/{{post.id}}">Edit</a>
